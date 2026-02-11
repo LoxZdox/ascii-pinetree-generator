@@ -33,7 +33,7 @@ function runCLI(inputs: string[]): Promise<string> {
 }
 
 test('creates tree file', async () => {
-  const filePath = path.join(PROJECT_ROOT, 'test_tree.txt');
+  const filePath = path.join(PROJECT_ROOT, `test_tree.txt`);
   createdFiles.push(filePath);
 
   await runCLI(['test_tree.txt', '3']);
@@ -42,7 +42,7 @@ test('creates tree file', async () => {
 });
 
 test('invalid directory', async () => {
-  const invalidpath = path.join(PROJECT_ROOT, 'some_invanid_dir', 'tree.txt');
+  const invalidpath = path.join(PROJECT_ROOT, 'some_invanid_dir', `${Math.random()}test_tree.tx`);
   const stdout = await runCLI([invalidpath]);
 
   expect(stdout).toContain("Directory does not exist");
@@ -52,7 +52,7 @@ test('invalid directory', async () => {
 
 test('invalid height', async () => {
   const invalidvalue = 'abc'
-  const filePath = path.join(PROJECT_ROOT, 'test_tree.txt');
+  const filePath = path.join(PROJECT_ROOT, `${Math.random()}test_tree.tx`);
   createdFiles.push(filePath);
 
   const stdout = await runCLI(['test_tree.txt', invalidvalue]);
@@ -60,8 +60,6 @@ test('invalid height', async () => {
   expect(stdout).toContain("Wrong value");
   expect(fs.existsSync(filePath)).toBeFalsy();
 });
-
-
 
 test.afterEach(async () => {
   
