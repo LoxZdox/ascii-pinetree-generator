@@ -1,0 +1,23 @@
+{
+  "name": "ascii-pinetree-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoxZdox/ascii-pinetree-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LoxZdox/ascii-pinetree-generator/issues"
+  },
+  "homepage": "https://github.com/LoxZdox/ascii-pinetree-generator#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.2.3",
+    "ts-node": "^10.9.2"
+  }
+}
