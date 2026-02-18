@@ -49,11 +49,12 @@ function askingheight(filepath) {
     });
 }
 function tree_gen(height) {
-    console.log('Width of the tree is: ' + (1 + (height - 1) * 4) + ' symbols');
+    let width = 1 + (height - 1) * 8
+    console.log('Width of the tree is: ' + width + ' symbols');
     let image = [];
     //star
     let firstrow = '';
-    for (let j = (height - 1) * 2; j >= 0; j--) {
+    for (let j = width/2; j >= 0; j--) {
         firstrow = firstrow.concat(' ');
     }
     firstrow = firstrow.concat('W');
@@ -63,7 +64,7 @@ function tree_gen(height) {
         let row = '';
         let leaves = '';
         let space = '';
-        for (let j = (height - 1) * 2 - 2 * i; j >= 0; j--) {
+        for (let j = (width - 1)/2 - i*4; j >= 0; j--) {
             if ((i % 2 != 0) && (j == 0)) {
                 space = space.concat('@');
             }
@@ -72,10 +73,10 @@ function tree_gen(height) {
             }
         }
         row = row.concat(space);
-        for (let k = 0; k < (2 + (height - 1) * 2 - space.length) * 2 - 1; k++) {
-            leaves = leaves.concat('*');
+        for (let k = 0; k <= (1+(width - 1)/2 - space.length) * 2  - leaves.length/2; k++) {
+            leaves = leaves.concat('* ');
         }
-        row = row.concat(leaves);
+        row = row.concat(leaves.trimEnd());
         if ((i % 2 == 0) && (i != 0)) {
             row = row.concat('@');
         }
@@ -84,7 +85,7 @@ function tree_gen(height) {
     //tree trunc
     for (let i = 0; i < 2; i++) {
         let trunc = '';
-        for (let j = (height - 1) * 2 - 2; j >= 0; j--) {
+        for (let j = width/2 - 2; j >= 0; j--) {
             trunc = trunc.concat(' ');
         }
         trunc = trunc.concat('TTTTT');
